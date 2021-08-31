@@ -1,0 +1,16 @@
+steps:
+- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+  args:
+  - gcloud
+  - functions
+  - deploy
+  - ${_FUNCTION_NAME}
+  - --runtime=${_RUNTIME}
+  - --entrypoint=${_ENTRYPOINT}
+  - --region=${_FUNCTION_REGION}
+  - --source=${_SOURCE_CODE}
+  - --trigger-http
+substitutions:
+  _PATH: '\$PATH'
+  _IMAGE_ZONE: 'us-central1-f'
+  _AGENT_VERSION: 'v1'
